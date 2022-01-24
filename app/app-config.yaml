@@ -1,13 +1,20 @@
-project: default
-source:
-  repoURL: 'git@github.com:tfinardi/gitops-arquitex.git'
-  path: app/
-  targetRevision: HEAD
-destination:
-  server: 'https://kubernetes.default.svc'
-  namespace: sock-shop
-syncPolicy:
-  automated: {}
-  syncOptions:
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sock-shop-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/tfinardi/gitops-arquitex.git'
+    path: manifests/
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: sock-shop
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
     - CreateNamespace=true
-    - PruneLast=true
