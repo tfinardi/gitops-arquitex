@@ -1,0 +1,13 @@
+project: default
+source:
+  repoURL: 'git@github.com:tfinardi/gitops-arquitex.git'
+  path: app/
+  targetRevision: HEAD
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: sock-shop
+syncPolicy:
+  automated: {}
+  syncOptions:
+    - CreateNamespace=true
+    - PruneLast=true
