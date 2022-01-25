@@ -1,32 +1,48 @@
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orders
+  annotations:
+        prometheus.io/scrape: 'true'
+  labels:
+    name: orders
+  namespace: sock-shop
+spec:
+  ports:
+    # the port that this service should serve on
+  - port: 80
+    targetPort: 80
+  selector:
+    name: orders
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: shipping
+  name: orders
   labels:
-    name: shipping
+    name: orders
   namespace: sock-shop
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: shipping
+      name: orders
   template:
     metadata:
       labels:
-        name: shipping
+        name: orders
     spec:
       containers:
-      - name: shipping
-        image: weaveworksdemos/shipping:0.4.8
+      - name: orders
+        image: weaveworksdemos/orders:0.4.7
         env:
-         - name: ZIPKIN
-           value: zipkin.jaeger.svc.cluster.local
          - name: JAVA_OPTS
            value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
         resources:
           limits:
-            cpu: 300m
+            cpu: 500m
             memory: 500Mi
           requests:
             cpu: 100m
