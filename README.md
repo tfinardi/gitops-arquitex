@@ -4,8 +4,7 @@ Repositório utilizado na apresentação da 24ª edição do Arquitex na Ambev T
 
 ## Arquivos
 
-Para fins didatos e simplificação do entendimento, os arquivos estão distribuídos no repositório da seguinte maneira:
- characters into "smart" typographic punctuation HTML entities. For example:
+Para fins didáticos e simplificação, os arquivos estão distribuídos no repositório da seguinte maneira:
 
 | Path        | Conteúdo |
 |-------------|----------|
