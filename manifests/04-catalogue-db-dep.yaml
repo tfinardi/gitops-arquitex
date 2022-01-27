@@ -36,10 +36,10 @@ spec:
       - name: catalogue-db
         image: weaveworksdemos/catalogue-db:0.3.0
         env:
-          - name: MYSQL_ROOT_PASSWORD
-            value: fake_password
-          - name: MYSQL_DATABASE
-            value: socksdb
+        - name: MYSQL_ROOT_PASSWORD
+          value: fake_password
+        - name: MYSQL_DATABASE
+          value: socksdb
         ports:
         - name: mysql
           containerPort: 3306

@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: catalogue
   annotations:
-        prometheus.io/scrape: 'true'
+    prometheus.io/scrape: 'true'
   labels:
     name: catalogue
   namespace: sock-shop
@@ -54,9 +54,9 @@ spec:
           runAsUser: 10001
           capabilities:
             drop:
-              - all
+            - all
             add:
-              - NET_BIND_SERVICE
+            - NET_BIND_SERVICE
           readOnlyRootFilesystem: true
         livenessProbe:
           httpGet:

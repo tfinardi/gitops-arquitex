@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: front-end
   annotations:
-        prometheus.io/scrape: 'true'
+    prometheus.io/scrape: 'true'
   labels:
     name: front-end
   namespace: sock-shop
@@ -53,7 +53,7 @@ spec:
           runAsUser: 10001
           capabilities:
             drop:
-              - all
+            - all
           readOnlyRootFilesystem: true
         livenessProbe:
           httpGet:
