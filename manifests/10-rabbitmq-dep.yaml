@@ -4,8 +4,8 @@ kind: Service
 metadata:
   name: rabbitmq
   annotations:
-        prometheus.io/scrape: 'true'
-        prometheus.io/port: '9090'
+    prometheus.io/scrape: 'true'
+    prometheus.io/port: '9090'
   labels:
     name: rabbitmq
   namespace: sock-shop
@@ -53,12 +53,12 @@ spec:
         securityContext:
           capabilities:
             drop:
-              - all
+            - all
             add:
-              - CHOWN
-              - SETGID
-              - SETUID
-              - DAC_OVERRIDE
+            - CHOWN
+            - SETGID
+            - SETUID
+            - DAC_OVERRIDE
           readOnlyRootFilesystem: true
       - name: rabbitmq-exporter
         image: kbudde/rabbitmq-exporter
